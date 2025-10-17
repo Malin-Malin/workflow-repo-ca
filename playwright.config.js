@@ -32,6 +32,15 @@ export default defineConfig({
     trace: "on-first-retry",
   },
 
+  /* Configure local dev server to be started before tests */
+  webServer: {
+    command: "npx http-server . -p 3000 -s",
+    port: 3000,
+    reuseExistingServer: !process.env.CI,
+    stdout: "ignore",
+    stderr: "pipe",
+  },
+
   /* Configure projects for major browsers */
   projects: [
     {
