@@ -17,7 +17,6 @@ describe("isActivePath", () => {
     ).toBe(false);
   });
 
-  //Returns true when current path matches href exactly
   it("should return true for exact match", () => {
     expect(isActivePath("/about", "/about")).toBe(true);
   });
@@ -26,11 +25,11 @@ describe("isActivePath", () => {
     expect(isActivePath("/about", "/contact")).toBe(false);
   });
 
-  //Returns true for root path ("/") when path is "/" or "/index.html"
   it("should return true for root path", () => {
     expect(isActivePath("/", "/")).toBe(true);
     expect(isActivePath("/", "/index.html")).toBe(true);
   });
+
   it("should return false for root path when not root", () => {
     expect(isActivePath("/about", "/home")).toBe(false);
   });

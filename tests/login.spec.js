@@ -7,7 +7,6 @@ test.describe("Login Page", () => {
     await page.fill('input[name="password"]', process.env.TEST_PASSWORD);
     await page.click('button[type="submit"]');
     await page.waitForURL("/");
-    // Check if we see logout button - means we're logged in
     await expect(page.getByRole("button", { name: "Logout" })).toBeVisible();
   });
   test("Invalid credentials", async ({ page }) => {
